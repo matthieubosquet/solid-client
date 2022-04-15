@@ -1,0 +1,16 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "incremental": true,
+    "inlineSources": true,
+    "module": "ES2020",
+    "newLine": "lf",
+    "noUnusedLocals": true,
+    "outDir": "dist",
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "stripInternal": true
+  },
+  "include": ["src/mod.ts"]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "solid-client",
+  "version": "0.0.1",
+  "description": "",
+  "license": "ISC",
+  "repository": "https://github.com/matthieubosquet/solid-client",
+  "bugs": "https://github.com/matthieubosquet/solid-client/issues",
+  "homepage": "https://github.com/matthieubosquet/solid-client#readme",
+  "keywords": [],
+  "contributors": [
+    "Matthieu Bosquet <matthieu@cognithive.com> (https://github.com/matthieubosquet)"
+  ],
+  "type": "module",
+  "exports": "./dist/mod.js",
+  "types": "./dist/mod.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "audit": "npm audit --production --audit-level=low",
+    "build": "tsc",
+    "lint": "npm run lint:eslint -- --cache --fix && npm run lint:licenses && npm run lint:prettier -- --write",
+    "lint:ci": "npm run lint:eslint && npm run lint:licenses && npm run lint:prettier -- --check",
+    "lint:eslint": "eslint --ignore-path .gitignore .",
+    "lint:licenses": "license-checker --production --onlyAllow 'Apache; BSD; ISC; MIT'",
+    "lint:prettier": "prettier '**/*.{css,html,json,md,mdx,yml}' --ignore-path .gitignore",
+    "prepublishOnly": "npm run audit && npm ci --ignore-scripts && npm run build && npm run test",
+    "start": "npm run build -- --watch",
+    "test": "npm run test:unit",
+    "test:e2e": "jest --config .jestrc.js --testPathPattern='e2e' --no-coverage",
+    "test:unit": "jest --config .jestrc.js --testPathPattern='unit'"
+  },
+  "devDependencies": {
+    "@solid/eslint-config-base": "^0.5.0",
+    "@tsconfig/node14": "^1.0.1",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^16.11.26",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.1.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "license-checker": "^25.0.1",
+    "prettier": "^2.6.2",
+    "ts-jest": "^27.1.4",
+    "typescript": "^4.6.3"
+  }
+}
